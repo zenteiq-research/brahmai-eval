@@ -1,0 +1,34 @@
+# HumanEval+ from evalplus/humanevalplus: same protocol as humaneval_trim (trimmed prompt, greedy, pass@1) graded on
+# the extended EvalPlus tests with a 20 s per-problem execution timeout.
+task: humaneval_plus_trim
+dataset_path: evalplus/humanevalplus
+dataset_kwargs:
+  revision: d32357cf319e50e9c8d8dab5ea876c72b0fd321b
+unsafe_code: true
+output_type: generate_until
+test_split: test
+doc_to_text: "{{prompt | trim}}"
+doc_to_target: "{{test}}\ncheck({{entry_point}})"
+metric_list:
+  - metric: !function utils.pass_at_k
+    aggregation: mean
+    higher_is_better: true
+    k: [1]
+generation_kwargs:
+  until:
+    - "\nclass"
+    - "\ndef"
+    - "\n#"
+    - "\nif"
+    - "\nprint"
+  max_gen_toks: 1024
+  do_sample: false
+repeats: 1
+num_fewshot: 0
+filter_list:
+  - name: "create_test"
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.build_predictions
+metadata:
+  version: 1.1

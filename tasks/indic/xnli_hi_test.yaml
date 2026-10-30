@@ -1,0 +1,17 @@
+# XNLI (hi) from facebook/xnli: scored on the test split, k-shot exemplars drawn from that split.
+task: xnli_hi_test
+dataset_path: facebook/xnli
+dataset_name: hi
+dataset_kwargs:
+  revision: b8dd5d7af51114dbda02c0e3f6133f332186418e
+test_split: test
+output_type: multiple_choice
+doc_to_text: ''
+doc_to_target: label
+doc_to_choice: '{{[premise+", सही? हाँ, "+hypothesis,premise+", सही? इसलिए, "+hypothesis,premise+", सही? नहीं, "+hypothesis]}}'
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

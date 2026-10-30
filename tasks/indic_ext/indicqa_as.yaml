@@ -1,0 +1,30 @@
+# IndicQA as: seeded random 500 answerable rows (empty-gold rows dropped); exemplars = seeded 64 short held-out rows.
+# Source: ai4bharat/IndicQA @ d7e91454f5c8a85b82e2549453521a2b7a185c44 (cc-by-4.0).
+task: indicqa_as
+custom_dataset: !function utils.indicqa_dataset
+dataset_kwargs:
+  path: ai4bharat/IndicQA
+  name: as
+  revision: d7e91454f5c8a85b82e2549453521a2b7a185c44
+  seed: "1234-indicqa_as_local"
+test_split: test
+fewshot_split: fewshot
+output_type: generate_until
+doc_to_text: "Passage: {{context}}\n\nQuestion: {{question}}\n\nAnswer:"
+doc_to_target: '{{answers["text"][0]}}'
+process_results: !function utils.process_results_qa
+target_delimiter: ' '
+generation_kwargs:
+  until:
+    - "\n"
+  do_sample: false
+  temperature: 0.0
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

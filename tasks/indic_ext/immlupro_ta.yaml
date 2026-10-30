@@ -1,0 +1,21 @@
+# IndicMMLU-Pro tamil: seeded random 500 of the test rows, 3..10 options per row; exemplars = seeded 64 held-out test rows.
+# Source: LinguaLift/IndicMMLU-Pro @ 9cadffd98bb7e2853736949593bd54a6d96e4f13 (not stated).
+task: immlupro_ta
+custom_dataset: !function utils.indicmmlu_pro_dataset
+dataset_kwargs:
+  path: LinguaLift/IndicMMLU-Pro
+  name: tamil
+  revision: 9cadffd98bb7e2853736949593bd54a6d96e4f13
+  seed: "1234-immlupro_ta_local"
+test_split: test
+fewshot_split: fewshot
+output_type: multiple_choice
+doc_to_text: !function utils.immlupro_doc_to_text
+doc_to_choice: !function utils.immlupro_doc_to_choice
+doc_to_target: answer_index
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

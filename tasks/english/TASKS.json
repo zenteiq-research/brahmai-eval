@@ -1,0 +1,14 @@
+[
+ {
+  "task": "openbookqa",
+  "label": "openbookqa",
+  "num_fewshot": 5,
+  "chat": false,
+  "gen_kwargs": null,
+  "cost_secs": 11,
+  "n_docs": 500,
+  "source": "allenai/openbookqa@388097ea7776314e93a529163e0fea805b8a6454",
+  "license": "unknown (as stated on the dataset card)",
+  "stock": true
+ }
+]

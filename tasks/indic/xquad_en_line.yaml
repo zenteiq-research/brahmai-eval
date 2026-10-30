@@ -1,0 +1,26 @@
+# XQuAD (en) from google/xquad: extractive QA, greedy generation stopped at the first newline, SQuAD EM/F1.
+task: xquad_en_line
+dataset_path: google/xquad
+dataset_name: xquad.en
+dataset_kwargs:
+  revision: 51adfef1c1287aab1d2d91b5bead9bcfb9c68583
+validation_split: validation
+output_type: generate_until
+doc_to_text: "Context: {{context}}\n\nQuestion: {{question}}\n\nAnswer:"
+doc_to_target: '{{answers["text"][0]}}'
+process_results: !function utils.process_results_qa
+target_delimiter: ' '
+generation_kwargs:
+  until:
+    - "\n"
+  do_sample: false
+  temperature: 0.0
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

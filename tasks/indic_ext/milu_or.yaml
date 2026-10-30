@@ -1,0 +1,21 @@
+# MILU Odia: seeded random 500 of the test rows (option1..4 -> A..D); exemplars = seeded 64 validation rows.
+# Source: ai4bharat/MILU @ 946c423e72cd2657674a7a65d739e212e9a5f876 (cc-by-4.0).
+task: milu_or
+custom_dataset: !function utils.milu_dataset
+dataset_kwargs:
+  path: ai4bharat/MILU
+  name: Odia
+  revision: 946c423e72cd2657674a7a65d739e212e9a5f876
+  seed: "1234-milu_or_local"
+test_split: test
+fewshot_split: fewshot
+output_type: multiple_choice
+doc_to_text: "{{question.strip()}}\nA. {{option_a}}\nB. {{option_b}}\nC. {{option_c}}\nD. {{option_d}}\nAnswer:"
+doc_to_choice: ["A", "B", "C", "D"]
+doc_to_target: answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

@@ -1,0 +1,26 @@
+# MBPP+ from evalplus/mbppplus: the stock lm-eval mbpp protocol (3 fixed exemplars, [BEGIN]/[DONE] framing, greedy,
+# pass@1, executes generated code) graded on the full EvalPlus test script with a 20 s per-problem timeout.
+task: mbpp_plus_strict
+dataset_path: evalplus/mbppplus
+dataset_kwargs:
+  revision: b2d74c91837c3f2a20c1299ae98133cbe7cfa077
+unsafe_code: true
+output_type: generate_until
+test_split: test
+doc_to_text: "You are an expert Python programmer, and here is your task: {{prompt if prompt is defined else text}} Your code should pass these tests:\n\n{{test_list[0]}}\n{{test_list[1]}}\n{{test_list[2]}}\n[BEGIN]\n"
+doc_to_target: "{% if is_fewshot is defined %}{{code}}\n[DONE]{% else %}{{test_imports | join('\n')}}\n{{test}}{% endif %}"
+target_delimiter: ""
+metric_list:
+  - metric: !function utils.pass_at_1
+    aggregation: mean
+    higher_is_better: true
+generation_kwargs:
+  until:
+    - "[DONE]"
+  do_sample: false
+num_fewshot: 3
+fewshot_config:
+  sampler: first_n
+  samples: !function utils.list_fewshot_samples
+metadata:
+  version: 1.0

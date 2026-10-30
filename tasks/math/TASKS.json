@@ -1,0 +1,79 @@
+[
+ {
+  "task": "minerva_math_algebra_em",
+  "label": "math_algebra",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 712,
+  "n_docs": 1187,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ },
+ {
+  "task": "minerva_math_counting_and_prob_em",
+  "label": "math_counting_and_prob",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 284,
+  "n_docs": 474,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ },
+ {
+  "task": "minerva_math_geometry_em",
+  "label": "math_geometry",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 287,
+  "n_docs": 479,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ },
+ {
+  "task": "minerva_math_intermediate_algebra_em",
+  "label": "math_intermediate_algebra",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 542,
+  "n_docs": 903,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ },
+ {
+  "task": "minerva_math_num_theory_em",
+  "label": "math_num_theory",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 324,
+  "n_docs": 540,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ },
+ {
+  "task": "minerva_math_prealgebra_em",
+  "label": "math_prealgebra",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 523,
+  "n_docs": 871,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ },
+ {
+  "task": "minerva_math_precalc_em",
+  "label": "math_precalc",
+  "num_fewshot": 4,
+  "chat": true,
+  "gen_kwargs": "max_gen_toks=1024",
+  "cost_secs": 328,
+  "n_docs": 546,
+  "source": "EleutherAI/hendrycks_math@21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "license": "mit"
+ }
+]

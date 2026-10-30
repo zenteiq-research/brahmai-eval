@@ -1,0 +1,17 @@
+# XStoryCloze (te) from juletxara/xstory_cloze: scored on the eval split, k-shot exemplars drawn from that split.
+task: xstorycloze_te_eval
+dataset_path: juletxara/xstory_cloze
+dataset_name: te
+dataset_kwargs:
+  revision: c4c2d88a1ec8b37fe22166d2a610f272726724b6
+validation_split: eval
+output_type: multiple_choice
+doc_to_text: "{{[input_sentence_1, input_sentence_2, input_sentence_3, input_sentence_4]|join(' ')}}"
+doc_to_target: "{{answer_right_ending-1}}"
+doc_to_choice: "{{[sentence_quiz1, sentence_quiz2]}}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

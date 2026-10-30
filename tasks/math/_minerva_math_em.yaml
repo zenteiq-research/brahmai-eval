@@ -1,0 +1,16 @@
+# Size-weighted aggregate over the 7 MATH subjects (5,000 test problems).
+group: minerva_math_em
+task:
+  - minerva_math_algebra_em
+  - minerva_math_counting_and_prob_em
+  - minerva_math_geometry_em
+  - minerva_math_intermediate_algebra_em
+  - minerva_math_num_theory_em
+  - minerva_math_prealgebra_em
+  - minerva_math_precalc_em
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0

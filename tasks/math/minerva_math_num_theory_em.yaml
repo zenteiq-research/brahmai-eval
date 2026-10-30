@@ -1,0 +1,31 @@
+# MATH (number_theory) from EleutherAI/hendrycks_math: the Minerva 4-shot protocol, scored by exact match of the
+# normalised final answer (no symbolic equivalence; a "\boxed{}" answer is accepted when the Minerva sentence is absent).
+tag:
+  - minerva_math_em_tasks
+task: minerva_math_num_theory_em
+dataset_path: EleutherAI/hendrycks_math
+dataset_kwargs:
+  revision: 21a5633873b6a120296cce3e2df9d5550074f4a3
+process_docs: !function utils.process_docs
+dataset_name: number_theory
+output_type: generate_until
+training_split: train
+test_split: test
+doc_to_text: !function utils.doc_to_text
+process_results: !function utils.process_results
+doc_to_target: "{{answer if few_shot is undefined else solution}}"
+generation_kwargs:
+  until:
+    - "Problem:"
+  do_sample: false
+  temperature: 0
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+num_fewshot: 4
+metadata:
+  version: 3.0
+fewshot_config:
+  sampler: first_n
+  samples: !function utils.list_fewshot_samples

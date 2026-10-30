@@ -1,0 +1,21 @@
+# IndicSentiment as: labelled test rows, label 0/1 = Negative/Positive; exemplars = seeded 64 validation rows.
+# Source: ai4bharat/IndicSentiment @ dc8f3f66886531c6897fedffca1e938a68fc5013 (not stated).
+task: indicsentiment_as
+custom_dataset: !function utils.indicsentiment_dataset
+dataset_kwargs:
+  path: ai4bharat/IndicSentiment
+  name: as
+  revision: dc8f3f66886531c6897fedffca1e938a68fc5013
+  seed: "1234-indicsentiment_as_local"
+test_split: test
+fewshot_split: fewshot
+output_type: multiple_choice
+doc_to_text: "Review: {{review}}\nSentiment:"
+doc_to_choice: ["Negative", "Positive"]
+doc_to_target: label
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

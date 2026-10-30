@@ -1,0 +1,21 @@
+# INCLUDE Urdu: full test split; exemplars = validation rows not also in test (seeded held-out test rows fill the pool when validation is mostly a copy of test).
+# Source: CohereLabs/include-base-44 @ d2e1f6015f67a43c02a9a68db98e2298e2d6a660 (apache-2.0).
+task: include_ur
+custom_dataset: !function utils.include_dataset
+dataset_kwargs:
+  path: CohereLabs/include-base-44
+  name: Urdu
+  revision: d2e1f6015f67a43c02a9a68db98e2298e2d6a660
+  seed: "1234-include_ur_local"
+test_split: test
+fewshot_split: fewshot
+output_type: multiple_choice
+doc_to_text: "{{question.strip()}}\nA. {{option_a}}\nB. {{option_b}}\nC. {{option_c}}\nD. {{option_d}}\nAnswer:"
+doc_to_choice: ["A", "B", "C", "D"]
+doc_to_target: answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

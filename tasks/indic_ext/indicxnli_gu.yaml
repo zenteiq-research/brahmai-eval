@@ -1,0 +1,21 @@
+# IndicXNLI gu (forward translation): seeded random 2000 of the 5010 test rows, MNLI True/Neither/False form; exemplars = seeded 64 dev rows.
+# Source: Divyanshu/indicxnli @ 7092c27872e919f31d0496fb8b9c47bd2cba3f6c (cc0-1.0).
+task: indicxnli_gu
+custom_dataset: !function utils.indicxnli_dataset
+dataset_kwargs:
+  path: Divyanshu/indicxnli
+  name: gu
+  revision: 7092c27872e919f31d0496fb8b9c47bd2cba3f6c
+  seed: "1234-indicxnli_gu_local"
+test_split: test
+fewshot_split: fewshot
+output_type: multiple_choice
+doc_to_text: "{{premise}}\nQuestion: {{hypothesis}} True, False, or Neither?\nAnswer:"
+doc_to_choice: ["True", "Neither", "False"]
+doc_to_target: label
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

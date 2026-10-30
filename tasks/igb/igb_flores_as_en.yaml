@@ -1,0 +1,25 @@
+task: igb_flores_as_en
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: __DATA_DIR__/igb/flores_as_en/test.json
+    dev: __DATA_DIR__/igb/flores_as_en/dev.json
+  field: examples
+test_split: test
+fewshot_split: dev
+output_type: generate_until
+doc_to_text: "Translate the following text from Assamese to English.\n\nAssamese: {{source}}\n\nEnglish:"
+doc_to_target: "{{target}}"
+process_results: !function utils.process_results_chrf
+target_delimiter: ' '
+generation_kwargs:
+  until:
+    - "\n"
+  do_sample: false
+  temperature: 0.0
+metric_list:
+  - metric: chrf
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

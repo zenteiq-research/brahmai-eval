@@ -1,0 +1,19 @@
+brahmai-eval
+Copyright 2026 ZenteiQ AiTech Innovations Pvt. Ltd.
+
+This product includes software developed at ZenteiQ AiTech Innovations Pvt. Ltd.
+(https://github.com/zenteiq-research/brahmai-eval).
+
+The code is licensed under the Apache License 2.0 (see LICENSE). The benchmark
+datasets this tool downloads are NOT covered by that licence: each keeps its
+original licence and attribution, recorded per task in tasks/*/TASKS.json.
+The vendored BFCL scorer (downloaded at run time from the Gorilla repository)
+is Apache-2.0, Copyright the Gorilla authors.
+
+Parts of the task definitions and helpers under tasks/ are copied from or
+adapted from the lm-evaluation-harness (https://github.com/EleutherAI/lm-evaluation-harness,
+version 0.4.12), Copyright (c) 2020 EleutherAI, MIT License. The MIT licence
+text and the list of affected files are in tasks/LICENSE-lm-evaluation-harness;
+those files are distributed under Apache-2.0 AND MIT.
+
+This work was developed as part of the BrahmAI project, supported by the IndiaAI Mission. ZenteiQ acknowledges the support of the IndiaAI Mission, Ministry of Electronics and Information Technology (MeitY), under the Foundation Model initiative.

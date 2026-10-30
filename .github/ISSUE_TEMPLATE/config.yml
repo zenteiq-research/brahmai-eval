@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and discussion
+    url: https://github.com/zenteiq-research/brahmai-eval/discussions
+    about: Ask how to run or extend the suite, or share results.
+  - name: Security problem
+    url: https://github.com/zenteiq-research/brahmai-eval/blob/main/SECURITY.md
+    about: Report privately, as described in the security policy.
